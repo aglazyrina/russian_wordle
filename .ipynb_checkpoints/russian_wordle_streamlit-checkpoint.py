@@ -5,20 +5,6 @@ import random
 
 import streamlit as st
 
-# st.title('Counter Example using Callbacks with args')
-# if 'count' not in st.session_state:
-#     st.session_state.count = 0
-
-# increment_value = st.number_input('Enter a value', value=0, step=1)
-
-# def increment_counter(increment_value):
-#     st.session_state.count += increment_value
-
-# increment = st.button('Increment', on_click=increment_counter,
-#     args=(increment_value, ))
-
-# st.write('Count = ', st.session_state.count)
-
 COLOR_DICT = {
     True : 'green',
     False : 'yellow',
@@ -95,7 +81,7 @@ st.title('Russian Wordle')
 
 # Create a text element and let the reader know the data is loading.
 data_load_state = st.text('Loading word list...')
-# Load 10,000 rows of data into the dataframe.
+# Load words.
 words_list = load_words_list('words.txt')
 # Notify the reader that the data was successfully loaded.
 data_load_state.text("Done! (using st.cache)")
@@ -107,7 +93,7 @@ if 'target_word' not in st.session_state:
     
 target_word = st.session_state['target_word']
 # Create a text element that shows the word of the day.
-word_to_guess = st.text(target_word)
+# word_to_guess = st.text(target_word)
 
 # Initialization
 if 'color_grid' not in st.session_state:
